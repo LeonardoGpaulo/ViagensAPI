@@ -5,7 +5,7 @@ from app.database import Base
 class AvaliacaoModels(Base):
     __tablename__ = "avaliacao"
 
-    id_avaliacao = Column(BigInteger, primary_key=True)
+    id_avaliacao = Column(BigInteger, primary_key=True, autoincrement=True)
     nota_passageiro = Column(DECIMAL(3,2))
     nota_motorista = Column(DECIMAL(3,2))
     datahora_limite = Column(DateTime)

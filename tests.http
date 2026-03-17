@@ -1,0 +1,341 @@
+@base_url = http://127.0.0.1:8000
+
+
+###TESTE
+GET {{base_url}}/ HTTP/1.1
+Content-Type: application/json
+
+###----------------------------------AVALIACAO-------------------------------###
+
+###criar 
+POST {{base_url}}/avaliacao HTTP/1.1
+Content-Type: application/json
+
+{
+    "nota_passageiro": 4,
+    "nota_motorista": 5,
+    "datahora_limite": "2024-05-12 12:43:54"
+}
+###listar
+GET {{base_url}}/avaliacao/listar HTTP/1.1
+Accept: application/json
+
+###deletar
+DELETE {{base_url}}/avaliacao/deletar/3 HTTP/1.1
+Accept: application/json
+
+###atualizar
+PUT {{base_url}}/avaliacao/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nota_passageiro": 4,
+    "nota_motorista": 5,
+    "datahora_limite": "2024-05-12 12:43:54"
+}
+
+##----------------------------------------------------------------------------##
+
+###------------------------------CLASSE VEICULO------------------------------###
+
+###criar 
+POST {{base_url}}/classe_veiculo HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome_classe": "executivo",
+    "fator_preco": 5.5
+}
+
+###listar
+GET {{base_url}}/classe_veiculo/listar HTTP/1.1
+Accept: application/json
+
+###deletar
+DELETE {{base_url}}/classe_veiculo/deletar/3 HTTP/1.1
+Accept: application/json
+
+###atualizar
+PUT {{base_url}}/classe_veiculo/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+   "nome_classe": "black",
+    "fator_preço": 5.6
+}
+
+##----------------------------------------------------------------------------##
+
+###--------------------------------PAGAMENTO---------------------------------###
+
+###criar 
+POST {{base_url}}/pagamento HTTP/1.1
+Content-Type: application/json
+
+{
+    "valor": 100.50,
+    "data_pagamento": "2024-05-12 12:43:54",
+    "forma_pagamento": "cartão de crédito",
+    "id_corrida": 1,
+    "id_metodo_pagamento": 1
+}
+
+###listar
+GET {{base_url}}/pagamento/listar HTTP/1.1
+Accept: application/json
+
+###deletar
+DELETE {{base_url}}/pagamemento/deletar/3 HTTP/1.1
+Accept: application/json
+
+###atualizar
+PUT {{base_url}}/pagamento/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "valor": 150.75,
+    "data_pagamento": "2024-06-15 14:30:00",
+    "forma_pagamento": "boleto"
+}
+
+##----------------------------------------------------------------------------##
+
+###---------------------------MÉTODO DE PAGAMENTO----------------------------###
+
+###criar
+POST {{base_url}}/metodo_pagamento HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome_financeira": "Cartão de Crédito",
+    "descricao": "Pagamento realizado por meio de cartão de crédito."
+}
+
+###listar
+GET {{base_url}}/metodo_pagamento/listar HTTP/1.1
+Accept: application/json
+
+###deletar
+DELETE {{base_url}}/metodo_pagamento/deletar/3 HTTP/1.1
+Accept: application/json
+
+###atualizar
+PUT {{base_url}}/metodo_pagamento/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome_financeira": "Boleto Bancário",
+    "descricao": "Pagamento realizado por meio de boleto bancário."
+}
+
+#-----------------------------------------------------------------------------##
+
+##---------------------------------CORRIDA-----------------------------------###
+
+
+###criar
+POST {{base_url}}/corrida HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_passageiro": 1,
+    "id_motorista": 1,
+    "id_servico": 1,
+    "id_avaliacao": 1,
+    "datahora_inicio": "2024-05-12 12:43:54",
+    "datahora_fim": "2024-05-12 13:30:00",
+    "duracao_total": "Rua A, 123",
+    "gps_local_partida": "Avenida B, 456",
+    "gps_local_destino": "Rua C, 789",
+    "valor_estimado": 50.75,
+    "status": "concluída"
+    
+}
+
+###listar
+GET {{base_url}}/corrida/listar HTTP/1.1
+Accept: application/json
+
+###deletar
+DELETE {{base_url}}/corrida/deletar/3 HTTP/1.1
+Accept: application/json
+
+###atualizar
+PUT {{base_url}}/corrida/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_passageiro": 1,
+    "id_motorista": 1,
+    "id_servico": 1,
+    "id_avaliacao": 1,
+    "datahora_inicio": "2024-05-12 12:43:54",
+    "datahora_fim": "2024-05-12 13:30:00",
+    "duracao_total": "23 minutos",
+    "gps_local_partida": "Avenida 1, 456",
+    "gps_local_destino": "Rua h, 789",
+    "valor_estimado": 62.75,
+    "status": "pendente"
+  
+}
+
+#-----------------------------------------------------------------------------##
+
+###-----------------------------MODELO VEICULO-------------------------------###
+
+###criar
+POST {{base_url}}/modelo_veiculo HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome_modelo": "Sedan",
+    "fabricante": "Toyota",
+    "ano_fabricacao": 2020,
+    "id_classe_veiculo": 1
+}
+
+###listar
+GET {{base_url}}/modelo_veiculo/listar HTTP/1.1
+Accept: application/json
+
+###deletar
+DELETE {{base_url}}/modelo_veiculo/deletar/3 HTTP/1.1
+Accept: application/json
+
+###atualizar
+PUT {{base_url}}/modelo_veiculo/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome_modelo": "SUV",
+    "fabricante": "Honda",
+    "ano_fabricacao": 2021,
+    "id_classe_veiculo": 2
+}
+
+##----------------------------------------------------------------------------##
+
+###-----------------------------MOTORISTA VEICULO----------------------------###
+
+###criar
+POST {{base_url}}/motorista_veiculo HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_motorista": 1,
+    "id_modelo_veiculo": 1,
+    "datahora_inicio": "2024-05-12 12:43:54",
+    "datahora_fim": "2024-05-12 13:30:00"
+}
+
+###listar
+GET {{base_url}}/motorista_veiculo/listar HTTP/1.1
+Content-Type: application/json
+
+###deletar
+DELETE {{base_url}}/motorista_veiculo/deletar/3 HTTP/1.1
+Content-Type: application/json
+
+###atualizar
+PUT {{base_url}}/motorista_veiculo/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_motorista": 1,
+    "id_modelo_veiculo": 1,
+    "datahora_inicio": "2024-05-12 12:43:54",
+    "datahora_fim": "2024-05-12 13:30:00"
+}
+
+##----------------------------------------------------------------------------##
+
+###-----------------------------MOTORISTA------------------------------------###
+
+###criar
+POST {{base_url}}/motorista HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_usuario": 1,
+    "media_avaliacao": 4.5,
+    "cnh": 123456789
+}
+
+###listar
+GET {{base_url}}/motorista/listar HTTP/1.1
+Content-Type: application/json
+
+###deletar
+DELETE {{base_url}}/motorista/deletar/3 HTTP/1.1
+Content-Type: application/json
+
+###atualizar
+PUT {{base_url}}/motorista/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_usuario": 1,
+    "media_avaliacao": 4.8,
+    "cnh": 987654321
+}
+
+##----------------------------------------------------------------------------##
+
+###-----------------------------PASSAGEIRO-----------------------------------###
+
+###criar
+POST {{base_url}}/passageiro HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_usuario": 1,
+    "media_avaliacao": 4.5
+}
+
+###listar
+GET {{base_url}}/passageiro/listar HTTP/1.1
+Content-Type: application/json
+
+###deletar
+DELETE {{base_url}}/passageiro/deletar/3 HTTP/1.1
+Content-Type: application/json
+
+###atualizar
+PUT {{base_url}}/passageiro/atualizar/4 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_usuario": 1,
+    "media_avaliacao": 4.8
+}
+
+##-----------------------------------SERVICO----------------------------------##
+
+###criar
+POST {{base_url}}/servico HTTP/1.1
+
+{
+    "nome_servico": "Viagem Executiva",
+    "id_classe_minima": "Confort"
+}
+
+###listar
+GET {{base_url}}/servico/listar HTTP/1.1
+Content-Type: application/json
+
+###deletar
+DELETE {{base_url}}/servico/deletar/3 HTTP/1.1
+Content-Type: application/json
+
+###atualizar
+PUT {{base_url}}/servico/atualizar/4 HTTP/1.1
+Content-Type: application/json
+{
+    "nome_servico": "Viagem Luxo",
+    "id_classe_minima": "X"
+}
+
+##----------------------------------------------------------------------------##
+
+
+
