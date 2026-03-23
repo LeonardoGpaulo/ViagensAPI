@@ -60,6 +60,7 @@ async def atualizar_servico(id: int, servico: ServicoSchema, db: Session = Depen
         setattr(servico_atualizar, key, value)
         db.commit()
         db.refresh(servico_atualizar)
+        return servico_atualizar
 
 
 

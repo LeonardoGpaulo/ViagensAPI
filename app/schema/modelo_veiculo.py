@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from typing import Optional
 
 class ModeloVeiculoSchema(BaseModel):
-    nome: Optional[str] = None
+    nome_modelo: Optional[str] = None
     fabricante: Optional[str] = None
     cor: Optional[str] = None
     ano: Optional[int] = None

@@ -23,7 +23,7 @@ def criar_pagamento(pagamento: PagamentoSchema, db: Session = Depends(get_db)):
 # Listar todos os pagamentos
 
 @pagamento.get("/listar")
-def listar_pagamentos(db: Session = Depends(get_db)):
+def listar_pagamento(db: Session = Depends(get_db)):
     return db.query(PagamentoModels).all()
 
 ##----------------------------------------------------------------------------##
@@ -32,7 +32,7 @@ def listar_pagamentos(db: Session = Depends(get_db)):
 
 @pagamento.delete("/deletar/{id}")
 def deletar_pagamento(id: int, db: Session = Depends(get_db)):
-    pagamento = db.query(PagamentoModels).filter(PagamentoModels.id_pagamentos == id).first()
+    pagamento = db.query(PagamentoModels).filter(PagamentoModels.id_pagamento == id).first()
 
     if not pagamento:
         raise HTTPException(
@@ -49,7 +49,7 @@ def deletar_pagamento(id: int, db: Session = Depends(get_db)):
 
 @pagamento.put("/atualizar/{id}")
 def atualizar_pagamento(id: int, dados: PagamentoSchema, db: Session = Depends(get_db)):
-    pagamento_atualizar = db.query(PagamentoModels).filter(PagamentoModels.id_pagamentos == id).first()
+    pagamento_atualizar = db.query(PagamentoModels).filter(PagamentoModels.id_pagamento == id).first()
 
     # Verificar se o pagamento existe
     if not pagamento_atualizar:

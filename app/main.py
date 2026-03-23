@@ -13,10 +13,15 @@ from app.route.motorista_veiculo import motorista_veiculo
 from app.route.motorista import motorista
 from app.route.passageiro import passageiro
 from app.route.servico import servico
+from app.route.tipo_combustivel import tipo_combustivel
+from app.route.usuario import usuario
+from app.route.veiculo import veiculo
 
 ##----------------------------------------------------------------------------##
 
+#Base.metadata.drop_all(bind=engine)
 Base.metadata.create_all(bind=engine)
+
 app = FastAPI()
 app.include_router(avaliacao, prefix="/avaliacao", tags=["Avaliação"])
 app.include_router(classe_veiculo, prefix="/classe_veiculo", tags=["Classe Veículo"])
@@ -28,6 +33,9 @@ app.include_router(motorista_veiculo, prefix="/motorista_veiculo", tags=["Motori
 app.include_router(motorista, prefix="/motorista", tags=["Motorista"])
 app.include_router(passageiro, prefix="/passageiro", tags=["Passageiro"])
 app.include_router(servico, prefix="/servico", tags=["Serviço"])
+app.include_router(tipo_combustivel, prefix="/tipo_combustivel", tags=["Tipo Combustível"])
+app.include_router(usuario, prefix="/usuario", tags=["Usuário"])
+app.include_router(veiculo, prefix="/veiculo", tags=["Veículo"])
 
 
 @app.get("/")

@@ -10,8 +10,8 @@ class CorridaSchema(BaseModel):
 
     datahora_inicio: Optional[datetime] = None
     datahora_fim: Optional[datetime] = None
-
     duracao_total: Optional[float] = None
+    
     gps_local_partida: Optional[str] = None
     gps_local_destino: Optional[str] = None
 
